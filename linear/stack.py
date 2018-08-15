@@ -37,16 +37,16 @@ def parChecker(symbolString):
     """
     A simple method checking the parentisises are balanced or not using stack
     """
-   s = Stack() 
-   balanced = True
-   index = 0
-   while index < len(symbolString) and balanced:
-       symbol = symbolString[index]
-       if symbol in '([{':
-           s.push(symbol)
+    s = Stack()
+    balanced = True
+    index = 0
+    while index < len(symbolString) and balanced:
+        symbol = symbolString[index]
+        if symbol in '([{':
+            s.push(symbol)
         else:
-            top = s.top()
-            if not matcheds(top,symbol):
+            top = s.pop()
+            if not matches(top,symbol):
                 balanced =  False
         index += 1
     if balanced  and s.isEmpty():
